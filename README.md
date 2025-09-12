@@ -8,4 +8,4 @@ Which seems to be related to the "Class Colors" option in the general tab
 
 Options like changing fonts / configure scroll area seem to work now (basic testing done on my behalf)
 
-Disclaimer: I will not be monitoring / updating this going forward, this was just to get the MSBT options working
+# Disclaimer: I will not be monitoring / updating this going forward, this was just to get the MSBT options working
