@@ -14,3 +14,6 @@ Instructions:
 3. Reload UI (if already logged in)
 
 # Disclaimer: I will not be monitoring / updating this going forward, this was just to get the MSBT options working
+I am not the original author or maintainer, just a fan of the addon hoping to get this working for MOP
+
+_Repository can and will be removed upon author's request_
