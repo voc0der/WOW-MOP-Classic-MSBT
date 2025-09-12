@@ -1,4 +1,4 @@
-# WOW-MOP-Classic---MSBT
+# WOW-MOP-Classic MSBT
 Updated MOP Classic MSBT
 
 Retail version used was generating many LUA errors when trying to edit MSBT options
