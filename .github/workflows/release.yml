@@ -1,0 +1,55 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create addon package
+        run: |
+          mkdir -p release
+          cd release
+
+          # Copy addon folders
+          cp -r ../MikScrollingBattleText .
+          cp -r ../MSBTOptions .
+
+          # Create zip file
+          zip -r MikScrollingBattleText-${{ steps.version.outputs.version }}.zip MikScrollingBattleText MSBTOptions
+
+          # Move zip to root for upload
+          mv MikScrollingBattleText-${{ steps.version.outputs.version }}.zip ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ steps.version.outputs.tag }}
+          draft: false
+          prerelease: false
+          files: MikScrollingBattleText-${{ steps.version.outputs.version }}.zip
+          body: |
+            ## MikScrollingBattleText ${{ steps.version.outputs.version }}
+
+            Download the zip file and extract it into your World of Warcraft `Interface/AddOns` directory.
+
+            ### What's Changed
+            - See commit history for details
+
+            **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.version.outputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
