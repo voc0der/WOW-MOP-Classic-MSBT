@@ -1,0 +1,25 @@
+package-as: MikScrollingBattleText
+
+enable-nolib-creation: no
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - README.md
+  - .gitignore
+  - .github
+  - .pkgmeta
+  - .claude
+
+externals:
+  MikScrollingBattleText/Libs/LibStub:
+    url: https://repos.wowace.com/wow/libstub/trunk
+    tag: latest
+  MikScrollingBattleText/Libs/CallbackHandler-1.0:
+    url: https://repos.wowace.com/wow/callbackhandler/trunk/CallbackHandler-1.0
+    tag: latest
+  MikScrollingBattleText/Libs/LibSharedMedia-3.0:
+    url: https://repos.wowace.com/wow/libsharedmedia-3-0/trunk/LibSharedMedia-3.0
+    tag: latest
